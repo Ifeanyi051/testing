@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="border border-1 pt-5 pb-3">
+        <img src="images/instagram1.png" alt="" class="w-28 ml-40">
+    </nav>
+
+    <div class="border border-1 w-[400px] mx-auto">
+        <div>
+            <img src="images/iglock.png" alt="" class="w-24 mx-auto mt-6">
+            <p class="font-semibold text-lg w-40 mx-auto mt-2">Trouble logging in?</p>
+        </div>
+        <div class="text-sm w-[300px] mx-auto text-gray-500 mt-3">
+            <p>Enter your email, phone, or username and we'll</p>
+            <p class="ml-1">send you a link to get back into your account.</p>
+        </div>
+
+        <div class="w-[300px] mx-auto mt-3">
+            <form action="" name="form">
+                <input name="enter" type="text" id="myInput" placeholder="Email, Phone, or Username" class="px-2 outline-0 py-1 border border-1 border-gray-400 rounded-lg w-[300px]">
+                <span class="text-red-500 font-bold enter-error"></span>
+            </form>
+        </div>
+        <div class="w-[300px] mx-auto mt-4">
+            <button onclick="myAction()" id="myButton" class="button bg-blue-500 text-white text-sm py-2 flex justify-center rounded-lg hover:bg-blue-900 w-full">Send login link</button>
+        </div>
+
+        <div>
+            <p class=" w-[170px] mx-auto mt-2">
+                <a href="" class="text-sm text-blue-800">Can't reset your password?</a>
+            </p>
+        </div>
+
+        <div class="flex justify-between w-[300px] mx-auto mt-10">
+            <div><hr class="border-[2px] border-gray-300 my-2 w-28"></div>
+            <div class=""><h1>OR</h1></div>
+            <div><hr class="border-[2px] my-2 w-28 border-gray-300"></div>
+        </div>
+
+        <div class="mt-3">
+            <a href="">
+                <p class=" w-[140px] mx-auto">Create new account</p>
+            </a>
+        </div>
+
+        <div class="bg-gray-100 border border-1 py-2 mt-7">
+            <p class=" w-[85px] mx-auto hover:text-green-400">
+                <a href="" class="font-medium text-sm">Back to login</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function myAction() {
+            let _enter = document.forms["form"]["enter"].value;
+
+            let _enterError = document.querySelector(".enter-error");
+
+            if (_enter == "") {
+                _enterError.innerHTML = "Field can not be empty";
+                return;
+            }else if (_enter.match("[^@A-Za-z0-9()+ ]")) {
+                _enterError.innerHTML = "only special characters like @, () and + are allowed";
+                return;
+            } else {
+                _enterError.innerHTML = ""
+            }
+        }
+    </script>
+</body>
+</html>

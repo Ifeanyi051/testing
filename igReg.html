@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <title>Instagram Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="w-[360px] mx-auto shadow-xl shadow-gray-500 pt-7">
+        <!-- <div class="mt-8">
+            <h1 class="font-Playpen font-bold text-4xl w-48 mx-auto">Instagram</h1>
+        </div> -->
+        <div class="mt-7 w-52 mx-auto">
+            <img src="images/instagram1.png" alt="">
+        </div>
+        <div class="mt-10 w-[280px] mx-auto">
+            <a href="">
+                <p class=" bg-blue-500 py-1 text-white text-base flex items-center px-10 rounded-lg hover:bg-blue-900"><span class="fab fa-facebook-square text-2xl"></span> <span class="ml-5">Login with Facebook</span></p>
+            </a>
+        </div>
+
+        <!-- <div class="mx-auto w-5 font-semibold">
+            <p>OR</p>
+        </div> -->
+        <div class="flex justify-between w-[310px] mx-auto mt-5">
+            <div><hr class="border-[2px] border-gray-300 my-2 w-28"></div>
+            <div class=""><h1>OR</h1></div>
+            <div><hr class="border-[2px] my-2 w-28 border-gray-300"></div>
+        </div>
+           
+
+        <div class="mt-5">
+            <div class="grid w-[280px] gap-2 mx-auto">
+                <form action="" name="thisUser" class="grid w-[280px] gap-2 mx-auto">
+                    <input type="text" name="email" placeholder="Email" class="px-2 outline-0 py-1 border border-1 border-gray-400 rounded-lg">
+                    <span class="text-red-600 ml-3 email-error"></span>
+                    <input type="text" id="fname" name="fullname" placeholder="Full Name" class="px-2 outline-0 py-1 border border-1 border-gray-400 rounded-lg">
+                    <span id="fname-error" class="text-red-600 ml-3 fullname-error"></span>
+                    <input type="text" name="username" placeholder="Username" class="px-2 outline-0 py-1 border border-1 border-gray-400 rounded-lg">
+                    <span class="text-red-600 ml-3 username-error"></span>
+                    <input type="password" name="password" placeholder="Password" class="px-2 outline-0 py-1 border border-1 border-gray-400 rounded-lg">
+                    <span class="text-red-600 ml-3 password-error"></span>
+                </form>
+            </div>
+
+            <!-- <div class="w-[280px] mx-auto mt-3">
+                <p class="text-xs font-normal text-gray-500 ml-2">People who use our service may have uploaded</p>
+                <p class="text-xs font-normal text-gray-500">your contact information to Instagram. <span><a href="" class="text-sky-800 font-medium">Learn More</a></span></p>
+            </div>
+            <div class="w-[250px] mx-auto mt-3 ">
+                <p class="text-xs font-normal text-gray-500">By signing up, you agree to our <span><a href="" class="text-sky-800 font-medium">Terms</a></span> , <span><a href="" class="text-sky-800 font-medium">Privacy</a></span></p>
+                <p class="text-xs font-normal text-gray-500 ml-14"><span><a href="" class="text-sky-800 font-medium">Policy</a></span> and <span><a href="" class="text-sky-800 font-medium">Cookies Policy</a></span></p>
+            </div> -->
+
+            <div class="w-[280px] mx-auto mt-4">
+                <button type="button" onclick="CreateForm()" class="w-full">
+                    <p class="bg-blue-500 text-white text-lg py-1 flex justify-center rounded-lg hover:bg-blue-900">Sign Up</p>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-8 border-t border-gray-300 pb-3 bg-[#fafafa]">
+            <h1 class="w-9 mx-auto text-gray-500 mt-2">from</h1>
+            <div class="w-16 mx-auto">
+                <img src="images/meta2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function CreateForm() {
+            let _email = document.forms["thisUser"]["email"].value;
+            let _fname = document.forms["thisUser"]["fullname"].value;
+            let _user = document.forms["thisUser"]["username"].value;
+            let _password = document.forms["thisUser"]["password"].value;
+
+            // get error message
+            let _emailError = document.querySelector(".email-error");
+            let _fnameError = document.querySelector("#fname-error");
+            let _userError = document.querySelector(".username-error");
+            let _passwordError = document.querySelector(".password-error");
+
+            if (_email == "") {
+                _emailError.innerHTML = "enter your email";
+                return;
+            } else if (_email.match("[^@.A-Za-z0-9]")) {
+                _emailError.innerHTML = "Invalid email address";
+                return;
+            } else {
+                _emailError.innerHTML = "";
+            }
+
+
+            if (_fname == "") {
+                _fnameError.innerHTML = "Enter full name";
+                return;
+            } else if (_fname.length < 4 || _fname > 50) {
+                _fnameError.innerHTML = "Invalid full name";
+                return;
+            } else {
+                _fnameError.innerHTML = "";
+            }
+
+
+
+            if (_user == "") {
+                _userError.innerHTML = "Input Username";
+                return;
+            } else if (_user.length < 4) {
+                _userError.innerHTML = "Username should be more than 4 characters";
+                return;
+            } else {
+                _userError.innerHTML = ""
+            }
+
+            if (_password == "") {
+                _passwordError.innerHTML = "Enter your password";
+                return;
+            } else {
+                _passwordError.innerHTML = ""
+            }
+        }
+    </script>
+</body>
+</html>
